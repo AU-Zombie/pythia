@@ -28,7 +28,6 @@ Pythia supports this modern approach by providing a common format and easy conve
 - [Shodan](https://www.shodan.io/)
 - [Censys](https://censys.com/)
 - [FOFA](https://en.fofa.info/)
-- [BinaryEdge](https://app.binaryedge.io/login)
 - [ZoomEye](https://www.zoomeye.hk)
 - [Hunter](https://hunter.how/)
 

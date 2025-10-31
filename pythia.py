@@ -9,7 +9,6 @@ from pythia_converter import (
     pythia_query_to_hunter_query,
     pythia_query_to_censys_query,
     pythia_query_to_shodan_query,
-    pythia_query_to_binaryedge_query,
     pythia_query_to_zoomeye_query
 )
 from api_searcher.api_searcher import *
@@ -40,9 +39,7 @@ def convert_to_platform_query(data, platform, api, output_file, browser):
             "HUNTER": pythia_converter.pythia_query_to_hunter_query.pythia_to_hunter_query,
             "CENSYS": pythia_converter.pythia_query_to_censys_query.pythia_to_censys_query,
             "SHODAN": pythia_converter.pythia_query_to_shodan_query.pythia_to_shodan_query,
-            "ZOOMEYE": pythia_converter.pythia_query_to_zoomeye_query.pythia_to_zoomeye_query,
-            "BINARYEDGE": pythia_converter.pythia_query_to_binaryedge_query.pythia_to_binaryedge_query
-        }
+            "ZOOMEYE": pythia_converter.pythia_query_to_zoomeye_query.pythia_to_zoomeye_query        }
         converters[platform](data, api, output_file, browser)
 
 
@@ -64,7 +61,7 @@ def main():
     group.add_argument(
         '-convert',
         nargs='+',
-        choices=['FOFA', 'CENSYS', 'SHODAN', 'BINARYEDGE', 'ZOOMEYE', 'HUNTER', 'ALL'],
+        choices=['FOFA', 'CENSYS', 'SHODAN', 'ZOOMEYE', 'HUNTER', 'ALL'],
         help='Convert the query to a specified platform format. Separate the platforms using space characters.'
     )
     parser.add_argument('-open_url', action='store_true', help='Open the URLs in a browser. (requires -convert argument)')
@@ -79,7 +76,7 @@ def main():
         validate_rule(data)
     elif args.convert:
         platforms = args.convert if 'ALL' not in args.convert else [
-            'FOFA', 'CENSYS', 'SHODAN', 'BINARYEDGE', 'ZOOMEYE', 'HUNTER']
+            'FOFA', 'CENSYS', 'SHODAN', 'ZOOMEYE', 'HUNTER']
         browser = args.open_url
         for platform in platforms:
             print(colored("[!]", 'white') + f" Starting Pythia conversion to {platform} format...")

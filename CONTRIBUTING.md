@@ -25,10 +25,6 @@ python3 pythia.py -file queries/TOOLS/major_hunting_query_APT_EL1T3.yml -validat
 ```
 
 ```bash
-python3 pythia.py -file queries/TOOLS/major_hunting_query_APT_EL1T3.yml -convert BINARYEDGE
-```
-
-```bash
 python3 pythia.py -file queries/TOOLS/major_hunting_query_APT_EL1T3.yml -convert CENSYS -api
 ```
 

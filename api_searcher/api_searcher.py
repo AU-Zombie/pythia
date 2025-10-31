@@ -100,16 +100,3 @@ def search_zoomeye_api(api_key, query, file=None):
     else:
         results = response.json()
         log_api_results("ZOOMEYE", results if results.get('available') else [], file)
-
-def search_binaryedge_api(api_key, query, file=None):
-    headers = {"X-Key": api_key}
-    binaryedge_url = "https://api.binaryedge.io/v2/query/search"
-    log_message("Starting to search BINARYEDGE API...", file)
-    response = requests.get(f"{binaryedge_url}?query={query}", headers=headers)
-
-    if response.status_code != 200:
-        log_message(f"Error in BINARYEDGE API results for query: {query}", file, 'red')
-        log_message(response.content.decode(), file)
-    else:
-        results = response.json()
-        log_api_results("BINARYEDGE", results.get('events'), file)
